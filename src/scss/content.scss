@@ -127,6 +127,7 @@ main {
         font-family: $font-primary;
         font-size: 26px;
         opacity: .4;
+        transition: opacity .6s cubic-bezier(.25, 1, .5, 1);
 
         &.active {
           opacity: 1;
@@ -147,6 +148,8 @@ main {
       align-items: center;
       justify-content: center;
       cursor: grab;
+      user-select: none;
+      transition: transform .4s cubic-bezier(.25, 1, .5, 1);
 
       &::before,
       &::after {
