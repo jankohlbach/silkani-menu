@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@500&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../scss/main.scss">
-  <script src="../js/main.js" defer></script>
+  <script src="../js/main.js" type="module" defer></script>
 </head>
 <body>
   <header>
@@ -34,7 +34,24 @@
 
   <main>
     <div class="grid">
-      <div class="main-wrap">
+      <div class="main-wrap" data-slide="2019">
+        <div class="row-wrap right right-2">
+          <a href="#">Fernando Berlin</a>
+        </div>
+        <div class="row-wrap left left-3">
+          <a href="#">Silkani</a>
+        </div>
+        <div class="row-wrap right right-3">
+          <a href="#">Jitrois</a>
+        </div>
+        <div class="row-wrap left left-3">
+          <a href="#">Carolina Ritz</a>
+        </div>
+        <div class="row-wrap right right-2">
+          <a href="#">Deura</a>
+        </div>
+      </div>
+      <div class="main-wrap active" data-slide="2020">
         <div class="row-wrap left left-2">
           <a href="#">Silkani</a>
         </div>
@@ -51,18 +68,29 @@
           <a href="#">Fernando Berlin</a>
         </div>
       </div>
+      <div class="main-wrap" data-slide="2021">
+        <div class="row-wrap left left-1">
+          <a href="#">Jitrois</a>
+        </div>
+        <div class="row-wrap right right-2">
+          <a href="#">Silkani</a>
+        </div>
+        <div class="row-wrap left left-3">
+          <a href="#">Fernando Berlin</a>
+        </div>
+        <div class="row-wrap right right-2">
+          <a href="#">Carolina Ritz</a>
+        </div>
+        <div class="row-wrap left left-2">
+          <a href="#">Deura</a>
+        </div>
+      </div>
       <div class="nav-wrap">
         <div class="nav">
           <div class="years">
-            <button type="button">
-              2019
-            </button>
-            <button type="button" class="active">
-              2020
-            </button>
-            <button type="button">
-              2021
-            </button>
+            <button type="button" data-slide="2019">2019</button>
+            <button type="button" data-slide="2020" class="active">2020</button>
+            <button type="button" data-slide="2021">2021</button>
           </div>
           <div class="controls"><div class="center"></div></div>
           <span class="instructions">Scroller pour défiler</span>

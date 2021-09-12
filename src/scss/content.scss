@@ -4,7 +4,15 @@ main {
   margin-top: 50px;
 
   .main-wrap {
+    grid-row: 1;
     grid-column: 1 / span 12;
+    opacity: 0;
+    visibility: hidden;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
 
     a {
       display: inline-block;
@@ -101,7 +109,7 @@ main {
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      cursor: grab;
 
       &::before,
       &::after {
