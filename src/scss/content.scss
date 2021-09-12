@@ -1,0 +1,142 @@
+@use './vars' as *;
+
+main {
+  margin-top: 50px;
+
+  .main-wrap {
+    grid-column: 1 / span 12;
+
+    a {
+      display: inline-block;
+      font-family: $font-primary;
+      font-size: 100px;
+      text-transform: uppercase;
+      opacity: .4;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .row-wrap {
+      text-align: center;
+
+      &.left {
+        &-1 a {
+          transform: translateX(-7vw);
+        }
+
+        &-2 a {
+          transform: translateX(-12vw);
+        }
+
+        &-3 a {
+          transform: translateX(-18vw);
+        }
+      }
+
+      &.right {
+        &-1 a {
+          transform: translateX(7vw);
+        }
+
+        &-2 a {
+          transform: translateX(12vw);
+        }
+
+        &-3 a {
+          transform: translateX(18vw);
+        }
+      }
+    }
+  }
+
+  .nav-wrap {
+    grid-column: 1 / span 12;
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      margin-bottom: 70px;
+    }
+
+    .years {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      &::before,
+      &::after {
+        content: '';
+        width: 25px;
+        height: 1px;
+        background-color: $color-white;
+        opacity: .4;
+      }
+
+      button {
+        margin: 0 15px;
+        color: $color-white;
+        font-family: $font-primary;
+        font-size: 26px;
+        opacity: .4;
+
+        &.active {
+          opacity: 1;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .controls {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        display: block;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-right-color: $color-white;
+      }
+
+      &::before {
+        transform: translateY(-50%) translateX(-28px);
+      }
+
+      &::after {
+        transform: translateY(-50%) rotate(180deg) translateX(-27px);
+      }
+
+      .center {
+        width: 7px;
+        height: 7px;
+        border-radius: 100%;
+        background-color: $color-white;
+        box-shadow: 0 0 0 8px $color-black, 0 0 0 10px $color-white;
+      }
+    }
+
+    .instructions {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      opacity: .4;
+    }
+  }
+}

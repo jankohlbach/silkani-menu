@@ -1,0 +1,41 @@
+@use './vars.scss' as *;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  position: relative;
+  background: $color-black;
+  color: $color-white;
+  font-family: $font-secondary;
+}
+
+a {
+  text-decoration: none;
+  color: $color-white;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: $grid-gap;
+  max-width: $content-width;
+  padding: 0 $page-margin;
+  margin: 0 auto;
+}

@@ -1,0 +1,41 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-bottom: 50px;
+
+  .footer-wrap {
+    grid-column: 1 / span 12;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+  }
+
+  li + li {
+    margin-left: 75px;
+  }
+
+  a {
+    font-size: 16px;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+
+    &.active {
+      text-decoration: underline;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  svg {
+    width: 26px;
+  }
+}
