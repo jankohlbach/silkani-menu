@@ -1,3 +1,5 @@
+@use './vars' as *;
+
 footer {
   position: absolute;
   bottom: 0;
@@ -26,12 +28,29 @@ footer {
     letter-spacing: .8px;
     text-transform: uppercase;
 
-    &.active {
-      text-decoration: underline;
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 1px;
+      background-color: $color-white;
+      transition: width .6s cubic-bezier(.25, 1, .5, 1);
     }
 
+    &.active::after {
+      width: 100%;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  button {
+    transition: transform .6s cubic-bezier(.25, 1, .5, 1);
+
     &:hover {
-      text-decoration: underline;
+      transform: translateY(-3px);
     }
   }
 
