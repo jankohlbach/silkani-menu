@@ -1,0 +1,23 @@
+@use './vars' as *;
+
+.props {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  a {
+    display: inline-block;
+    max-width: 130px;
+    padding: .3em;
+    background: $color-white;
+    color: $color-black;
+    font-size: 12px;
+    opacity: .6;
+    transition: background-color .6s cubic-bezier(.25, 1, .5, 1), color .6s cubic-bezier(.25, 1, .5, 1);
+
+    &:hover {
+      background-color: $color-black;
+      color: $color-white;
+    }
+  }
+}
