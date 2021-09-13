@@ -43,12 +43,12 @@ class Links {
     // img 1
     this.targetPos1.x = lerp(this.targetPos1.x, this.mousePos.x, this.targetPos1.lerp);
     this.targetPos1.y = lerp(this.targetPos1.y, this.mousePos.y, this.targetPos1.lerp);
-    this.images[0].style.transform = `translate(${this.targetPos1.x / 3}px, ${this.targetPos1.y / 3}px)`;
+    this.images[0].style.transform = `translate(${this.targetPos1.x / 2}px, ${this.targetPos1.y / 2}px)`;
 
     // img 2
     this.targetPos2.x = lerp(this.targetPos2.x, this.mousePos.x, this.targetPos2.lerp);
     this.targetPos2.y = lerp(this.targetPos2.y, this.mousePos.y, this.targetPos2.lerp);
-    this.images[1].style.transform = `translate(${this.targetPos2.x / 3}px, ${this.targetPos2.y / 3}px)`;
+    this.images[1].style.transform = `translate(${this.targetPos2.x / 4}px, ${this.targetPos2.y / 4}px)`;
 
     this.raf = requestAnimationFrame(this.render);
   }
