@@ -25,6 +25,11 @@ class Slider {
       .dataset.slide;
 
     this.addListeners();
+    this.slides.forEach((slideEl) => {
+      const links = slideEl.querySelectorAll('a');
+      slideEl.style.setProperty('--links', links.length);
+      links.forEach((link, i) => link.style.setProperty('--index', i + 1));
+    });
   }
 
   bindings() {
@@ -56,10 +61,17 @@ class Slider {
 
       this.slides.forEach((slideEl) => {
         if (slideEl.dataset.slide === slide) {
-          slideEl.classList.add(this.ACTIVE_CLASS);
-          this.activeYear = slide;
-        } else {
-          slideEl.classList.remove(this.ACTIVE_CLASS);
+          setTimeout(() => {
+            slideEl.classList.add(this.ACTIVE_CLASS);
+            this.activeYear = slide;
+          }, 600);
+        } else if (slideEl.classList.contains(this.ACTIVE_CLASS)) {
+          slideEl.classList.add('fade-out');
+
+          setTimeout(() => {
+            slideEl.classList.remove(this.ACTIVE_CLASS);
+            slideEl.classList.remove('fade-out');
+          }, 600);
         }
       });
     }

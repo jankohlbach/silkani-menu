@@ -9,11 +9,6 @@ main {
     opacity: 0;
     visibility: hidden;
 
-    &.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
     img {
       position: fixed;
       z-index: $z-index-images;
@@ -37,7 +32,9 @@ main {
       font-size: 100px;
       text-transform: uppercase;
       opacity: .4;
-      transition: opacity .6s cubic-bezier(.25, 1, .5, 1);
+      transform: translateY(100%);
+      transition: opacity .6s cubic-bezier(.25, 1, .5, 1), transform .6s cubic-bezier(.25, 1, .5, 1);
+      transition-delay: 0s, calc(.05s * var(--index) - .05s);
 
       &:hover,
       &.active {
@@ -50,19 +47,45 @@ main {
       }
     }
 
+    &.active {
+      opacity: 1;
+      visibility: visible;
+
+      a {
+        transform: translateY(0);
+      }
+    }
+
+    &.fade-out a {
+      transform: translateY(100%);
+    }
+
+    span {
+      display: inline-block;
+      overflow: hidden;
+
+      &.active {
+        a,
+        ~ img {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
     .row-wrap {
       text-align: center;
 
       &.left {
-        &-1 a {
+        &-1 span {
           transform: translateX(-7vw);
         }
 
-        &-2 a {
+        &-2 span {
           transform: translateX(-12vw);
         }
 
-        &-3 a {
+        &-3 span {
           transform: translateX(-18vw);
         }
 
@@ -78,15 +101,15 @@ main {
       }
 
       &.right {
-        &-1 a {
+        &-1 span {
           transform: translateX(7vw);
         }
 
-        &-2 a {
+        &-2 span {
           transform: translateX(12vw);
         }
 
-        &-3 a {
+        &-3 span {
           transform: translateX(18vw);
         }
 

@@ -61,16 +61,16 @@ class Links {
   }
 
   handleMouseEnter({ target, clientX, clientY }) {
-    this.images = target.parentNode.querySelectorAll('img');
+    this.images = target.parentNode.parentNode.querySelectorAll('img');
     this.rootPos.x = clientX;
     this.rootPos.y = clientY;
 
-    target.classList.add(this.ACTIVE_CLASS);
+    target.parentNode.classList.add(this.ACTIVE_CLASS);
     window.addEventListener('mousemove', this.onMove);
   }
 
   handleMouseLeave({ target }) {
-    target.classList.remove(this.ACTIVE_CLASS);
+    target.parentNode.classList.remove(this.ACTIVE_CLASS);
     window.removeEventListener('mousemove', this.onMove);
     this.raf = null;
   }
