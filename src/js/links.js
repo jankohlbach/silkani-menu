@@ -4,6 +4,26 @@ class Links {
   constructor() {
     this.ACTIVE_CLASS = 'active';
 
+    this.bindings();
+    this.init();
+  }
+
+  bindings() {
+    this.onMove = this.onMove.bind(this);
+    this.render = this.render.bind(this);
+    this.resetPositions = this.resetPositions.bind(this);
+  }
+
+  init() {
+    this.links = document.querySelectorAll('.main-wrap a');
+
+    this.links.forEach((link) => link.addEventListener('mouseenter', this.handleMouseEnter.bind(this)));
+    this.links.forEach((link) => link.addEventListener('mouseleave', this.handleMouseLeave.bind(this)));
+
+    this.resetPositions();
+  }
+
+  resetPositions() {
     this.rootPos = {
       x: 0,
       y: 0,
@@ -22,21 +42,6 @@ class Links {
       y: 0,
       lerp: 0.12,
     };
-
-    this.bindings();
-    this.init();
-  }
-
-  bindings() {
-    this.onMove = this.onMove.bind(this);
-    this.render = this.render.bind(this);
-  }
-
-  init() {
-    this.links = document.querySelectorAll('.main-wrap a');
-
-    this.links.forEach((link) => link.addEventListener('mouseenter', this.handleMouseEnter.bind(this)));
-    this.links.forEach((link) => link.addEventListener('mouseleave', this.handleMouseLeave.bind(this)));
   }
 
   render() {
@@ -61,6 +66,8 @@ class Links {
   }
 
   handleMouseEnter({ target, clientX, clientY }) {
+    this.resetPositions();
+
     this.images = target.parentNode.parentNode.querySelectorAll('img');
     this.rootPos.x = clientX;
     this.rootPos.y = clientY;
