@@ -29,6 +29,7 @@
     "stylelint-scss": "^3.18.0"
   },
   "dependencies": {
+    "locomotive-scroll": "^4.1.2",
     "normalize.css": "^8.0.1"
   }
 }
