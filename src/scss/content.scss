@@ -127,7 +127,9 @@ main {
   }
 
   .nav-wrap {
+    opacity: 0;
     grid-column: 1 / span 12;
+    animation: fadeIn .8s cubic-bezier(.25, 1, .5, 1) .8s 1 normal forwards;
 
     .nav {
       display: flex;
@@ -215,6 +217,16 @@ main {
       text-transform: uppercase;
       letter-spacing: 1.2px;
       opacity: .4;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
     }
   }
 }

@@ -20,16 +20,22 @@ class Slider {
     this.control = document.querySelector('.controls');
     this.buttons = document.querySelectorAll('.years button');
     this.slides = document.querySelectorAll('.main-wrap');
-    this.activeYear = Array.from(this.slides)
-      .filter((slide) => slide.classList.contains(this.ACTIVE_CLASS))[0]
-      .dataset.slide;
+    this.slidesFirst = document.querySelector('.main-wrap.first');
 
-    this.addListeners();
-    this.slides.forEach((slideEl) => {
-      const links = slideEl.querySelectorAll('a');
-      slideEl.style.setProperty('--links', links.length);
-      links.forEach((link, i) => link.style.setProperty('--index', i + 1));
-    });
+    setTimeout(() => {
+      this.slidesFirst.classList.add(this.ACTIVE_CLASS);
+
+      this.activeYear = Array.from(this.slides)
+        .filter((slide) => slide.classList.contains(this.ACTIVE_CLASS))[0]
+        .dataset.slide;
+
+      this.addListeners();
+      this.slides.forEach((slideEl) => {
+        const links = slideEl.querySelectorAll('a');
+        slideEl.style.setProperty('--links', links.length);
+        links.forEach((link, i) => link.style.setProperty('--index', i + 1));
+      });
+    }, 100);
   }
 
   bindings() {

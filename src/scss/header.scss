@@ -10,6 +10,12 @@ header {
     justify-content: flex-end;
   }
 
+  li,
+  button {
+    opacity: 0;
+    animation: fadeIn .6s cubic-bezier(.25, 1, .5, 1) 0s 1 normal forwards;
+  }
+
   ul {
     display: flex;
     list-style: none;
@@ -17,6 +23,7 @@ header {
 
   li {
     margin-right: 75px;
+    animation-delay: calc(.1s * var(--index) + .4s);
   }
 
   a {
@@ -44,6 +51,7 @@ header {
 
   button {
     transition: transform .6s cubic-bezier(.25, 1, .5, 1);
+    animation-delay: .7s;
 
     &:hover {
       transform: translateY(-3px);
@@ -52,5 +60,15 @@ header {
 
   svg {
     fill: $color-white;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 100%;
+    }
   }
 }
