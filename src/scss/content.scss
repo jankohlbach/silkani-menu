@@ -36,13 +36,15 @@ main {
       transition: opacity .6s cubic-bezier(.25, 1, .5, 1), transform .6s cubic-bezier(.25, 1, .5, 1);
       transition-delay: 0s, calc(.05s * var(--index) - .05s);
 
-      &:hover,
-      &.active {
-        opacity: 1;
-
-        ~ img {
+      @media (hover: hover) {
+        &:hover,
+        &.active {
           opacity: 1;
-          visibility: visible;
+
+          ~ img {
+            opacity: 1;
+            visibility: visible;
+          }
         }
       }
     }
