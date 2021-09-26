@@ -16,6 +16,13 @@ class Slider {
     this.init();
   }
 
+  bindings() {
+    this.slide = this.slide.bind(this);
+    this.startMove = this.startMove.bind(this);
+    this.onMove = this.onMove.bind(this);
+    this.stopMove = this.stopMove.bind(this);
+  }
+
   init() {
     this.control = document.querySelector('.controls');
     this.buttons = document.querySelectorAll('.years button');
@@ -38,19 +45,13 @@ class Slider {
     }, 100);
   }
 
-  bindings() {
-    this.slide = this.slide.bind(this);
-    this.startMove = this.startMove.bind(this);
-    this.onMove = this.onMove.bind(this);
-    this.stopMove = this.stopMove.bind(this);
-  }
-
   addListeners() {
     this.buttons.forEach((button) => {
       button.addEventListener('click', this.slide);
     });
 
     this.control.addEventListener('mousedown', this.startMove);
+    this.control.addEventListener('touchstart', this.startMove);
   }
 
   slide({ target }) {
@@ -85,16 +86,21 @@ class Slider {
 
   startMove(e) {
     window.addEventListener('mouseup', this.stopMove);
+    window.addEventListener('touchend', this.stopMove);
 
-    this.mousePos.x = e.clientX;
-    this.mousePos.y = e.clientY;
+    this.mousePos.x = e.clientX || e.touches[0].clientX;
+    this.mousePos.y = e.clientY || e.touches[0].clientY;
 
     window.addEventListener('mousemove', this.onMove);
+    window.addEventListener('touchmove', this.onMove);
   }
 
   onMove(e) {
-    this.targetPos.x = this.mousePos.x - e.clientX;
-    this.targetPos.y = this.mousePos.y - e.clientY;
+    const clientX = e.clientX || e.touches[0].clientX;
+    const clientY = e.clientY || e.touches[0].clientY;
+
+    this.targetPos.x = this.mousePos.x - clientX;
+    this.targetPos.y = this.mousePos.y - clientY;
 
     if (Math.abs(this.targetPos.x) < 100 && Math.abs(this.targetPos.y) < 20) {
       this.control.style.transform = `translate(${-this.targetPos.x}px, ${-this.targetPos.y}px)`;
@@ -117,6 +123,7 @@ class Slider {
 
   stopMove() {
     window.removeEventListener('mousemove', this.onMove);
+    window.removeEventListener('touchmove', this.onMove);
     this.control.style.transform = 'translate(0, 0)';
 
     if (this.targetPos.x > this.DRAG_OFFSET || this.targetPos.x < -this.DRAG_OFFSET) {
