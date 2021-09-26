@@ -66,14 +66,16 @@ class Links {
   }
 
   handleMouseEnter({ target, clientX, clientY }) {
-    this.resetPositions();
+    if (window.matchMedia('(hover: hover)').matches) {
+      this.resetPositions();
 
-    this.images = target.parentNode.parentNode.querySelectorAll('img');
-    this.rootPos.x = clientX;
-    this.rootPos.y = clientY;
+      this.images = target.parentNode.parentNode.querySelectorAll('img');
+      this.rootPos.x = clientX;
+      this.rootPos.y = clientY;
 
-    target.parentNode.classList.add(this.ACTIVE_CLASS);
-    window.addEventListener('mousemove', this.onMove);
+      target.parentNode.classList.add(this.ACTIVE_CLASS);
+      window.addEventListener('mousemove', this.onMove);
+    }
   }
 
   handleMouseLeave({ target }) {
