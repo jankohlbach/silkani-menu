@@ -1,7 +1,11 @@
 @use './vars' as *;
 
 header {
-  padding-top: 50px;
+  padding-top: 80px;
+
+  @media (min-width: 768px) {
+    padding-top: 50px;
+  }
 
   .header-wrap {
     grid-column: 1 / span 12;
@@ -22,7 +26,7 @@ header {
   }
 
   li {
-    margin-right: 75px;
+    margin-right: clamp(30px, 3.9vw, 75px);
     animation-delay: calc(.1s * var(--index) + .4s);
   }
 

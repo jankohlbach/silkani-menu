@@ -1,11 +1,14 @@
 @use './vars' as *;
 
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: clamp(20px, 2.6vw, 50px);
+
+  @media (min-width: 1024px) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 
   .footer-wrap {
     grid-column: 1 / span 12;
@@ -30,7 +33,7 @@ footer {
   }
 
   li + li {
-    margin-left: 75px;
+    margin-left: clamp(30px, 3.9vw, 75px);
   }
 
   a {

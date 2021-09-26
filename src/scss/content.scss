@@ -29,7 +29,7 @@ main {
     a {
       display: inline-block;
       font-family: $font-primary;
-      font-size: 100px;
+      font-size: clamp(60px, 5.21vw, 100px);
       text-transform: uppercase;
       opacity: .4;
       transform: translateY(100%);
@@ -77,6 +77,15 @@ main {
 
     .row-wrap {
       text-align: center;
+      margin-top: 30px;
+
+      @media (min-width: 768px) {
+        margin-top: 15px;
+      }
+
+      @media (min-width: 1024px) {
+        margin-top: 0;
+      }
 
       &.left {
         &-1 span {
