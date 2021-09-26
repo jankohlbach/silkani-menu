@@ -54,8 +54,10 @@ footer {
       width: 100%;
     }
 
-    &:hover::after {
-      width: 100%;
+    @media (hover: hover) {
+      &:hover::after {
+        width: 100%;
+      }
     }
   }
 
@@ -63,8 +65,10 @@ footer {
     transition: transform .6s cubic-bezier(.25, 1, .5, 1);
     animation-delay: .5s;
 
-    &:hover {
-      transform: translateY(-3px);
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-3px);
+      }
     }
   }
 
